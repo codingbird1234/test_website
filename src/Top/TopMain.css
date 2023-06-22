@@ -9,3 +9,8 @@
     background-color: rgb(247, 203, 201);
     margin: 0px;
 }
+
+.title{
+    background-color: rgba(0,0,0,0);
+    border-width: 0px;
+}

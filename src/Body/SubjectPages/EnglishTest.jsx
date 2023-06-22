@@ -9,8 +9,8 @@ function Subject(props){
 
     const navigate = useNavigate();
 
-    const sachikClick = (check, name) => {
-        {check ? navigate('/enter/study/math') : navigate('/enter/test/math/sachick')}
+    const basicEnglishWordClick = (check, name) => {
+        {check ? navigate('/enter/study/english') : navigate('/enter/test/english/basicEnglishWord')}
     };
 
     const bangClick = (check, name) => {
@@ -19,9 +19,9 @@ function Subject(props){
 
     const handleClick = (check, name) => {
         {
-            if(name==='사칙연산')
+            if(name==='기초영어단어')
             {
-                sachikClick();
+                basicEnglishWordClick();
             }
             else if(name==='방정식')
             {
@@ -50,8 +50,8 @@ function Subject(props){
 function MathTest(){
     return (
         <div className='subjectBox'>
-        <Subject name='사칙연산' isTested={false} color='rgb(27, 150, 212)'></Subject>
-        <Subject name='방정식' isTested={false} color='rgb(241, 241, 24)'></Subject>
+        <Subject name='기초영어단어' isTested={false} color='rgb(27, 150, 212)'></Subject>
+        <Subject name='고등영어단어' isTested={false} color='rgb(241, 241, 24)'></Subject>
         <Subject name='2222' isTested={false} color='rgb(134, 224, 66)'></Subject>
     </div>
     );

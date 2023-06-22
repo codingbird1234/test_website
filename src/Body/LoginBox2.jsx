@@ -1,6 +1,7 @@
 import React from "react";
 import './LoginBox2.css';
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login(props){
     return (
@@ -13,6 +14,12 @@ function LoginBox2({onLogin}){
     const [pwValue, setPwValue] = useState("");
     const [responseText, setResponseText] = useState('');
     const [response, setResponse] = useState('');
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+      navigate('/enter');
+    };
+
     const handleLogin = async() => {
         console.log(idValue);
         console.log(pwValue);
@@ -36,7 +43,7 @@ function LoginBox2({onLogin}){
             setResponseText(responseData);
             console.log(responseData.message);
             if (responseData.message=="true") {
-                onLogin();
+                handleClick();
               }
         } catch (error) {
             console.error('Error:', error);

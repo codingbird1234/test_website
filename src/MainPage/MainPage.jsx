@@ -5,7 +5,6 @@ import Body from "../Body/Body";
 function MainPage(){
     return (
         <div>
-            <TopMain></TopMain>
             <Body></Body>
         </div>
     );

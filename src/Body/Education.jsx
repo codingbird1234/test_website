@@ -11,8 +11,22 @@ function Subject(props){
         backgroundColor: props.color,
     };
 
+    const navigate = useNavigate();
+
+    const MathClick = (check, name) => {
+        {check ? navigate('/enter/study/math') : navigate('/enter/test/math')}
+    };
+
+    const EnglishClick = (check) => {
+        {check ? navigate('/enter/study/english') : navigate('/enter/test/english')}
+    };
+
+    const handleClick = (check, name) => {
+        {name==='수학' ? MathClick(check) : EnglishClick(check)}
+    };
+
     return (
-        <button className='subject' style={subjectStyle}>
+        <button className='subject' style={subjectStyle} onClick={() => handleClick(props.isTested, props.name)}>
             <h2 className='subjectName'>{props.name}</h2>
             {props.isTested ? (
                 <p className="state">{props.name} 공부하러 가기</p>
@@ -25,11 +39,6 @@ function Subject(props){
 }
 
 function Education(){
-    const [currentPage, setCurrentPage] = useState("home");
-
-    const nextPage = (name) => {
-        setCurrentPage(name);
-    };
 
     return (
         <div className='subjectBox'>
@@ -39,7 +48,6 @@ function Education(){
             <Subject name='사회' isTested={true} color='rgb(237, 177, 74)'></Subject>
             <Subject name='국어' isTested={true} color='rgb(234, 42, 42)'></Subject>
             <Subject name='역사' isTested={true} color='rgb(168, 84, 228)'></Subject>
-
         </div>
     );
 }

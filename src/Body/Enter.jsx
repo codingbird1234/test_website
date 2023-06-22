@@ -9,7 +9,7 @@ function Enter(){
     const [subjectId, setSubjectId] = useState(true);
 
     const handlePage = () => {
-        setSubjectId(!setSubjectId);
+        setSubjectId(!subjectId);
     };
 
     return (
@@ -19,7 +19,8 @@ function Enter(){
             </div>
             <div className='contents'>
                 <div class='element'>
-                    {subjectId ? <Education onPage={handlePage}></Education> : <MathTest onPage={handlePage}></MathTest>}
+                    {subjectId && <Education />}
+                    {!subjectId && <MathTest />}
                 </div>
             </div>
         </div>
